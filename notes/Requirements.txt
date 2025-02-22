@@ -1,0 +1,49 @@
+I want to make a personal web app to keep track of memos.
+
+What is memo?
+It is {
+  timestamp: datetime,
+  title: string,
+  content: string  
+}
+
+Frontend has two pages:
+
+1. Main page
+
+- Form to add new memo
+
+- List of memos
+- This is filtered by day (defaulting to today)
+- Can change day
+
+2. Details page
+
+- Show details
+
+- Can edit
+- Can delete
+
+Backend has 4 endpoints:
+
+1. POST /api/memos
+
+- Add a new memo
+
+2. GET /api/memos
+
+- Get memos
+- Query params:
+  - day: date
+
+3. PATCH /api/memos/:id
+
+- Update a memo
+- Path params:
+  - id: string
+
+4. DELETE /api/memos/:id
+
+- Delete a memo
+- Path params:
+  - id: string
