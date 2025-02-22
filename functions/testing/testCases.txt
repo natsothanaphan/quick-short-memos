@@ -1,0 +1,18 @@
+POST /api/memos
+1. normal
+2. timestamp is not whole minute
+
+GET /api/memos
+1. one memo
+2. multiple memos
+3. no memo
+
+PATCH /api/memos/:id
+1. all fields
+2. one field
+3. timestamp is not whole minute
+4. memo does not exist
+
+DELETE /api/memos/:id
+1. memo exists
+2. memo does not exist
