@@ -1,0 +1,42 @@
+.memo-info {
+  margin: 4px 0;
+  width: 100%;
+  max-width: 720px;
+  word-break: break-word;
+}
+
+.memo-info pre {
+  margin: 24px 0;
+  white-space: pre-wrap;
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.edit-form > div {
+  display: flex;
+  align-items: center;
+}
+
+.edit-form > div > label {
+  width: 96px;
+  margin-right: 4px;
+  text-align: right;
+}
+
+.edit-form > div > input,
+.edit-form > div > textarea {
+  flex: 1;
+}
+
+.edit-form-buttons {
+  align-self: flex-end;
+  gap: 2px;
+}
+
+.back-button {
+  margin: 4px 0;
+}

@@ -91,4 +91,6 @@ const deleteMemo = async (token, memoId) => {
   console.log('api deleteMemo done');
 };
 
-export { ping, createMemo, getMemos, updateMemo, deleteMemo };
+export default {
+  ping, createMemo, getMemos, updateMemo, deleteMemo,
+};
