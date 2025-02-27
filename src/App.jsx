@@ -3,9 +3,8 @@ import Auth from './components/Auth';
 import MainPage from './components/MainPage';
 import DetailsPage from './components/DetailsPage';
 import './App.css';
-import './common.css';
 
-function App() {
+const App = () => {
   const [user, setUser] = useState(null);
   const [memosByDay, setMemosByDay] = useState({});
   const [selectedDay, setSelectedDay] = useState(null);
@@ -21,7 +20,7 @@ function App() {
   const handleBack = () => setSelectedMemo(null);
 
   return (
-    <div className="App">
+    <div className='App'>
       {!user && <Auth onSignIn={handleSignIn} />}
       {user && !selectedMemo && <MainPage user={user}
         previousMemosByDay={memosByDay}

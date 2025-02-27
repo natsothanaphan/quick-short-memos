@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import './DetailsPage.css';
-import '../common.css';
 import api from '../api.js';
-import { formatTimestamp, formatTimestampForDatetimeLocal, formatDay } from '../utils.js';
+import { alertAndLogErr, formatTimestamp, formatTimestampForDatetimeLocal, formatDay } from '../utils.js';
 
-export default function DetailsPage({
+const DetailsPage = ({
   user, memo, onChangeMemo, onBack,
- }) {
+}) => {
   const [currentMemo, setCurrentMemo] = useState(memo);
 
   const [editing, setEditing] = useState(false);
@@ -38,7 +37,7 @@ export default function DetailsPage({
 
       onBack();
     } catch (err) {
-      alert(err.message);
+      alertAndLogErr(err);
     }
   };
 
@@ -82,50 +81,46 @@ export default function DetailsPage({
         return memos;
       });
     } catch (err) {
-      alert(err.message);
+      alertAndLogErr(err);
     }
   };
   const handleCancel = () => setEditing(false);
 
   return (
     <>
-      <div className="memo-info">
+      <div className='memo-info'>
         {!editing && <>
           <h1>{currentMemo.title}</h1>
           <p>{formatTimestamp(currentMemo.timestamp)}</p>
           <pre>{currentMemo.content}</pre>
-          <button onClick={handleEdit} title="Edit">✏️</button>{' '}
-          <button onClick={handleDelete} title="Delete">🗑️</button>
+          <button onClick={handleEdit} title='Edit'>✏️</button>{' '}
+          <button onClick={handleDelete} title='Delete'>🗑️</button>
         </>}
-        {editing && <form className="edit-form" onSubmit={handleSubmit}>
+        {editing && <form className='edit-form' onSubmit={handleSubmit}>
           <div>
-            <label htmlFor=".details-title">Title</label>
-            <input id=".details-title" type="text" value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              required
-            />
+            <label htmlFor='.details-title'>Title</label>
+            <input id='.details-title' type='text' value={title}
+              onChange={(e) => setTitle(e.target.value)} required />
           </div>
           <div>
-            <label htmlFor=".details-timestamp">Timestamp</label>
-            <input id=".details-timestamp" type="datetime-local" value={timestamp}
-              onChange={(e) => setTimestamp(e.target.value)}
-              required
-            />
+            <label htmlFor='.details-timestamp'>Timestamp</label>
+            <input id='.details-timestamp' type='datetime-local' value={timestamp}
+              onChange={(e) => setTimestamp(e.target.value)} required />
           </div>
           <div>
-            <label htmlFor=".details-content">Content</label>
-            <textarea id=".details-content" value={content}
-              onChange={(e) => setContent(e.target.value)}
-              rows={5} required
-            />
+            <label htmlFor='.details-content'>Content</label>
+            <textarea id='.details-content' value={content}
+              rows={5} onChange={(e) => setContent(e.target.value)} required />
           </div>
-          <div className="edit-form-buttons">
-            <button type="submit" title="Save">💾</button>
-            <button onClick={handleCancel} title="Cancel">❌</button>
+          <div className='edit-form-buttons'>
+            <button type='submit' title='Save'>💾</button>
+            <button onClick={handleCancel} title='Cancel'>❌</button>
           </div>
         </form>}
       </div>
-      <button className="back-button" onClick={onBack}>Back</button>
+      <button className='back-button' onClick={onBack}>Back</button>
     </>
   );
 };
+
+export default DetailsPage;
