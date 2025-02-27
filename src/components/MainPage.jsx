@@ -87,7 +87,6 @@ const MainPage = ({
   return (
     <>
       <div className='add-memo'>
-        <h2>Add memo</h2>
         <form onSubmit={handleAddMemo}>
         <div>
             <label htmlFor='.add-title'>Title</label>
